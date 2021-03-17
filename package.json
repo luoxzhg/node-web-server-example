@@ -1,0 +1,22 @@
+{
+  "name": "web-server-example",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luoxzhg/node-web-server-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luoxzhg/node-web-server-example/issues"
+  },
+  "homepage": "https://github.com/luoxzhg/node-web-server-example#readme",
+  "dependencies": {
+    "express": "~4.17.1"
+  }
+}
