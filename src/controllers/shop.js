@@ -8,13 +8,14 @@ class ShopController {
         this.shopService = await shopService()
 
         const router = Router()
+        // router.get('/', this.getAll.bind(this))
         router.get('/', this.getAll)
         router.get('/:shopId', this.getOne)
         router.put('/:shopId', this.put)
         router.delete('/:shodId', this.delete)
         return router
     }
-    // 必须使用箭头函数捕获 this
+    // 使用箭头函数捕获 this 或者在 router.METHOD 中显式绑定 this
     getAll = async (req, res) => {
         const {pageIndex, pageSize} = req.query
         console.log(this)
