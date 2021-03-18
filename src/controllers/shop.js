@@ -1,8 +1,8 @@
 const { Router } = require('express')
 const shopService = require('../services/shop')
+const { createShopFormSchema } = require('../moulds/ShopForm')
 
 class ShopController {
-    shopService;
 
     async init() {
         this.shopService = await shopService()
@@ -17,6 +17,8 @@ class ShopController {
     // 必须使用箭头函数捕获 this
     getAll = async (req, res) => {
         const {pageIndex, pageSize} = req.query
+        console.log(this)
+        console.log(this instanceof ShopController)
         const shopList = await this.shopService.find({pageIndex, pageSize})
         res.send({success:true, data: shopList})
     }
@@ -34,6 +36,14 @@ class ShopController {
     put = async (req, res)=> {
         const { shopId } = req.params
         const { name } = req.query
+
+        try {
+            await createShopFormSchema().validate({name})
+        } catch (e) {
+            res.status(400).send({success: false, message: e.message })
+            return
+        }
+
         const shopInfo = await this.shopService.modify({
             id: shopId,
             values: { name }

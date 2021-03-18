@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/luoxzhg/node-web-server-example#readme",
   "dependencies": {
-    "express": "~4.17.1"
+    "express": "~4.17.1",
+    "yup": "~0.32.9"
   }
 }
